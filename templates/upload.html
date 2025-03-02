@@ -1,0 +1,29 @@
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Upload CSV</button>
+</form>
+
+{% if messages %}
+<div class="alert alert-danger">
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<style>
+  button {
+    margin: 10px 0;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #e0e0e0;
+  }
+</style>
